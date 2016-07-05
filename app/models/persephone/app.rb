@@ -3,7 +3,7 @@ module Persephone
     extend ::Mongoid::Document
     extend ::Mongoid::Timestamps
 
-    embeds_one :authorization, class_name: Persephone.config.application_model, inverse_of: :application
+    embeds_one :authorization, class_name: 'Auth', inverse_of: :application
 
     field :name, String
     field :scopes, Array
