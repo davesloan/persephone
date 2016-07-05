@@ -27,3 +27,4 @@ module Persephone
       @scopes ||= [::Persephone.config.default_scope]
     end
   end
+end
