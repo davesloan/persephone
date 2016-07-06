@@ -3,7 +3,7 @@ module Persephone
     include ::Mongoid::Document
     include ::Mongoid::Timestamps
 
-    embeds_one :authorization, class_name: 'Auth', inverse_of: :application
+    embeds_one :auth
 
     field :name, type: String
     field :scopes, type: Array
@@ -21,6 +21,8 @@ module Persephone
     index({ client_secret: 1 })
     index({ app_id: 1 })
     index({ app_slug: 1 })
+
+    default_scope -> { ascending(:name) }
 
     before_validation do
       self.client_id ||= Digest::SHA256.hexdigest(UUID.new.generate(:compact))

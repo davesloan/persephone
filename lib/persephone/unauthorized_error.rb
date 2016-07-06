@@ -1,7 +1,7 @@
 module Persephone
   class UnauthorizedError < StandardError
-    def initialize
-      super('Application is not authorized: invalid token or scope.')
+    def initialize(message)
+      super(message)
     end
   end
 end

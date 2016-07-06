@@ -3,7 +3,7 @@ module Persephone
     include ::Mongoid::Document
     include ::Mongoid::Timestamps
 
-    embedded_in :application, class_name: 'App', inverse_of: :authorization
+    embedded_in :app
 
     field :expires, type: DateTime
     field :token, type: String
@@ -12,17 +12,18 @@ module Persephone
     validates :token, presence: true, uniqueness: true
 
     index({ token: 1 }, { unique: true })
+    index({ app_id: 1 })
 
     before_validation :generate_token, :generate_expires
 
     private
 
     def generate_token
-      token ||= Digest::SHA256.hexdigest UUID.new.generate(:compact)
+      self.token ||= Digest::SHA256.hexdigest UUID.new.generate(:compact)
     end
 
     def generate_expires
-      expires ||= Time.now.utc + 1.hour
+      self.expires ||= Time.now.utc + 1.hour
     end
   end
 end
