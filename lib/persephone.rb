@@ -1,9 +1,11 @@
 require 'uuid'
 require 'digest'
-require 'persephone/version'
-require 'persephone/config'
-require 'persephone/unauthorized_error'
-require "persephone/engine"
+require 'rails'
+
+require File.expand_path('../persephone/version.rb', __FILE__)
+require File.expand_path('../persephone/unauthorized_error.rb', __FILE__)
+require File.expand_path('../persephone/engine.rb', __FILE__)
 
 module Persephone
+  DEFAULT_SCOPE = 'public'.freeze
 end

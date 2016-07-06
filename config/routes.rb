@@ -1,3 +1,3 @@
-Persephone::Engine.routes.draw do
+Rails.application.routes.draw do
   match "oauth/token" => 'tokens#create', via: :post, module: 'persephone'
 end

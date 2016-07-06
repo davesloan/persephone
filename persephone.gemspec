@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- spec/*`.split("\n")
   gem.name          = "persephone"
-  gem.require_paths = ["lib", "app"]
+  gem.require_paths = ["lib"]
   gem.version       = Persephone::VERSION
 
   gem.add_runtime_dependency(%q<rails>, ["~> 4.2.5"])
