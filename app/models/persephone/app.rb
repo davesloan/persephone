@@ -3,7 +3,7 @@ module Persephone
     include ::Mongoid::Document
     include ::Mongoid::Timestamps
 
-    embeds_one :auth
+    embeds_one :auth, class_name: 'Persephone::Auth'
 
     field :name, type: String
     field :scopes, type: Array

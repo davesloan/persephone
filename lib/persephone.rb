@@ -46,7 +46,7 @@ module Persephone
     app = App.where(client_id: client_id, client_secret: client_secret).first
     if app
       app.auth&.destroy
-      app.auth = Auth.create(app: app)
+      app.auth = Persephone::Auth.create(app: app)
       app.save
     end
     app

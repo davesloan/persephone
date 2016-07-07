@@ -3,7 +3,7 @@ module Persephone
     include ::Mongoid::Document
     include ::Mongoid::Timestamps
 
-    embedded_in :app
+    embedded_in :app, class_name: 'Persephone::App'
 
     field :expires, type: DateTime
     field :token, type: String
