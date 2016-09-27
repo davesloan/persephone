@@ -16,6 +16,8 @@ module Persephone
     validates :name, presence: true, uniqueness: true
     validates :client_id, presence: true, uniqueness: true
     validates :client_secret, presence: true
+    validates :app_id, uniqueness: true
+    validates :app_slug, uniqueness: true, format: { with: /\A[a-z_]+\z/ }
 
     index({ client_id: 1 }, { unique: true })
     index({ client_secret: 1 })
