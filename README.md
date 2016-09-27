@@ -1,6 +1,10 @@
 # persephone
 This gem provides token based OAuth2 authorization within Rails 4 apps that use Mongoid 5 (commonly referred to as client_credentials authorization). It is named after the Greek goddess of the underworld for no good reason other than I liked the name.
 
+## Change Log
+
+A complete list of changes can be found in [CHANGES.md](CHANGES.md).
+
 ## Installation
 In your Rails app gemfile, add the following:
 
@@ -19,6 +23,17 @@ You'll need your client ID and client secret in order to authenticate.
 ```
 app.client_id
 app.client_secret
+```
+
+## Storing External References
+
+The App model has two additional fields which can be used to store identifiers for external objects either through an ID number or a string SLUG.
+
+```
+app = Persephone::App.new(params)
+app.app_id = 23
+app.app_slug = 'some_slug_here'
+app.save
 ```
 
 ## Authenticating
@@ -125,7 +140,7 @@ end
 
 Then simply include whichever concern is appropriate for your controller. You can require BOTH scopes if you include both concerns.
 
-##Contributing
+## Contributing
 
 * Fork it
 * Create your feature branch (git checkout -b my-new-feature)
