@@ -1,6 +1,7 @@
 module Persephone
   class TokensController < ActionController::Base
-
+  skip_before_action :verify_authenticity_token
+  
     def create
       app = ::Persephone.authenticate(params['client_id'], params['client_secret'])
       if app
