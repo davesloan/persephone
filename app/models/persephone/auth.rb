@@ -23,7 +23,7 @@ module Persephone
     end
 
     def generate_expires
-      self.expires ||= Time.now.utc + 1.hour
+      self.expires ||= Time.now.utc + 23.hours
     end
   end
 end
