@@ -18,5 +18,5 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency(%q<rails>, ["~> 4.2.5"])
   gem.add_runtime_dependency(%q<uuid>, ["~> 2.3.5"])
-  gem.add_runtime_dependency(%q<mongoid>, ["~> 5.1.0"])
+  gem.add_runtime_dependency(%q<mongoid>, [">= 5.1.0"])
 end
