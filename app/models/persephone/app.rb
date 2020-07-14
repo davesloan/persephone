@@ -21,6 +21,7 @@ module Persephone
 
     index({ client_id: 1 }, { unique: true })
     index({ client_secret: 1 })
+    index({ client_id: 1, client_secret: 1, name: 1 })
     index({ app_id: 1 })
     index({ app_slug: 1 })
 
